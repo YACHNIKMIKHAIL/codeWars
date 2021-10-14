@@ -1,0 +1,38 @@
+function fixTheMeerkat(arr) {
+ var newArr=arr.reverse();
+  return newArr;
+}
+
+function isPalindrome(x) {
+var n = x.length;
+  x=x.toLowerCase();
+  for (var i = 0; i < (n/2); ++i) {
+     if (x.charAt(i) != x.charAt(n - i - 1)) {
+         return false;
+     }
+  }
+
+  return true;
+}
+
+function updateLight(current) {
+  
+if (current=="green"){
+   return "yellow"
+ } else if (current=="yellow"){
+   return "red"
+ } else{
+   return "green"
+ }
+}
+
+function getAverage(marks){
+    var total = 0;
+      for(var i = 0; i < marks.length; i++){
+        total += marks[i];
+      }
+      
+      
+      return Math.floor(total / marks.length);
+    
+    }
