@@ -1,0 +1,67 @@
+function correct(string)
+{
+	const corrections = {
+    "5": "S",
+    "0": "O",
+    "1": "I",
+  };
+
+  return (
+    string
+      .split("")
+     
+      .map((char) =>
+        corrections.hasOwnProperty(char) ? corrections[char] : char
+      )
+      
+      .join("")
+  );
+}
+
+function remove(s){
+let result = s;
+  while (result[result.length - 1] === "!") {
+    result = result.slice(0, -1);
+  }
+  return result;
+
+}
+
+function charFreq(message) {
+    const returnObject = {};
+    
+      
+      for (let i = 0; i < message.length; i++) {
+        if (returnObject.hasOwnProperty(message[i])) {
+          returnObject[message[i]] += 1;
+        } else { 
+          returnObject[message[i]] = 1;
+        }
+      }
+      return returnObject;
+    }
+
+    function pickIt(arr){
+        var odd=[],even=[];
+      
+      
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] % 2 === 0) {
+            even.push(arr[i]);
+          } else {
+            odd.push(arr[i]);
+          }
+        }
+      
+      
+        const returnObject = [
+          odd,
+          even,
+        ];
+      
+        return returnObject;
+        
+        return [odd,even];
+      }
+
+      
