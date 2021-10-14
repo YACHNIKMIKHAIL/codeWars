@@ -1,0 +1,144 @@
+function chessBoard(rows, columns) {
+const board = [...Array(rows)].map((_) => []);
+
+ 
+  const rowO = [...Array(columns)].map((_, i) => (i % 2 ? "X" : "O"));
+
+ 
+  const rowX = [...Array(columns)].map((_, i) => (i % 2 ? "O" : "X"));
+
+
+  return board.map((_, i) => (i % 2 ? rowX : rowO));
+}
+
+function findOddDigits(n, k) {
+if (k === 0 || k > n) return 0;
+
+ 
+  const str = String(n);
+  const split = str.split("");
+  const odds = split.filter((num) => num % 2);
+
+ 
+  if (!odds.length || k > odds.length) return 0;
+
+  
+  const joined = odds.join("");
+  const sliced = joined.slice(0, k);
+
+
+  return Number(sliced);
+}
+
+function mergeArrays(a, b) {
+ const maxLength = Math.max(a.length, b.length);
+  let result = [];
+
+  for (let i = 0; i < maxLength; i++) {
+    result.push(a[i]);
+    result.push(b[i]);
+  }
+
+  return result.filter((value) => value !== undefined);
+}
+
+function higherVersion(ver1, ver2) {
+const split1 = ver1.split(".").map((s) => Number(s));
+  const split2 = ver2.split(".").map((s) => Number(s));
+  let result = null;
+
+  for (let i = 0; i < split1.length; i++) {
+    if (split1[i] > split2[i]) {
+      result = true;
+      break;
+    } else if (split1[i] < split2[i]) {
+      result = false;
+      break;
+    } else {
+      result = false;
+    }
+  }
+
+  return result;
+}
+
+var splitInParts = function(s, partLength){
+  let remaining = s;
+  let result = "";
+
+  while (remaining.length >= partLength) {
+  
+    result += remaining.slice(0, partLength) + " ";
+    remaining = remaining.slice(partLength);
+  }
+
+  result += remaining;
+  return result.trim();
+}
+
+var coinCombo = function(cents) {
+const coinValues = [25, 10, 5, 1];
+  const coins = Array(coinValues.length).fill(0);
+  let currentCents = cents;
+ 
+  for (const coin of coinValues) {
+    while (currentCents >= coin) {
+      const remainder = currentCents % coin;
+      const increaseBy = (currentCents - remainder) / coin;
+      currentCents = currentCents % coin;
+      const index = coinValues.length - 1 - coinValues.indexOf(coin);
+      coins[index] += increaseBy;
+    }
+  }
+
+  return coins;
+}
+
+var buy = function(x, arr){
+  if (arr.length <= 1) return null;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === x) {
+      
+        return [i, j];
+      }
+    }
+  }
+  return null;
+};
+
+function missingValues(arr) {
+  const count =  arr.reduce(
+    (acc, cur) =>
+      acc.hasOwnProperty(cur)
+        ? { ...acc, [cur]: acc[cur] + 1 }
+        : { ...acc, [cur]: 1 },
+    {}
+  );
+  const appears = (amount) =>
+    Object.entries(count)
+      .filter(([key, value]) => value === amount)
+      .map((entry) => entry[0]);
+
+  return appears(1) * appears(1) * appears(2);
+  
+  
+}
+
+function digits(num){
+const split = String(num) 
+    .split("") 
+    .map((digit) => Number(digit));
+
+  const sums = [];
+  for (let first = 0; first < split.length; first++) {
+    for (let second = first + 1; second < split.length; second++) {
+
+      sums.push(split[first] + split[second]);
+    }
+  }
+
+  return sums;
+}
+
