@@ -1,0 +1,41 @@
+function isPalindrome(x) {
+  const lowercaseInput = x.toLowerCase();
+
+  const forward = lowercaseInput;
+
+  const backward = lowercaseInput.split("").reverse().join("");
+
+  return forward === backward;
+}
+
+function twoSort(s) {
+const sorted = s.sort();
+  return sorted[0] 
+    .split("") 
+    .join("***");
+}
+
+function lowercaseCount(str){
+    let count = 0;
+
+  
+  for (const char of str) {
+    
+    if (char.match(/[a-z]/)) {
+      
+      count += 1;
+    }
+  }
+
+  return count;
+}
+
+var repeatIt = function(str, n) {
+    if (typeof str !== "string") {
+        return "Not a string";
+      }
+    
+      return str.repeat(n);
+      }
+
+      
