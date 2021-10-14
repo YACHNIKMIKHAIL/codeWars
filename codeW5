@@ -1,0 +1,92 @@
+function distinct(a) {
+  const withoutDuplicates = [];
+
+
+  for (const number of a) {
+    
+    if (!withoutDuplicates.includes(number)) {
+      withoutDuplicates.push(number);
+    }
+  }
+
+ 
+  return withoutDuplicates;
+}
+
+function divisibleBy(numbers, divisor){
+const result = [];
+
+
+  for (const n of numbers) {
+    
+    if (n % divisor === 0) {
+      
+      result.push(n);
+    }
+  }
+
+  
+  return result;
+}
+
+function defineSuit(card) {
+  const mappingSignToTerm = {
+    "♣": "clubs",
+    "♠": "spades",
+    "♦": "diamonds",
+    "♥": "hearts",
+  };
+
+  
+  const suitSign = card.slice(-1);
+
+  
+  const suitTerm = mappingSignToTerm[suitSign];
+
+
+  return suitTerm;
+}
+
+var countSheep = function (num){
+    let result = "";
+  
+    for (let i = 1; i <= num; i++) {
+      
+      result += `${i} sheep...`;
+    }
+  
+    return result;
+  }
+
+  function abbrevName(name){
+
+    return (
+    name
+      
+      .split(" ")
+
+      
+      .map((part) => part[0].toUpperCase())
+
+    
+      .join(".")
+  );
+
+}
+
+function points(games) {
+    let totalPoints = 0;
+  
+    for (const game of games) {
+      
+      const [scoreA, scoreB] = game.split(":");
+  
+      
+      const points = scoreA > scoreB ? 3 : scoreA === scoreB ? 1 : 0;
+  
+      
+      totalPoints += points;
+    }
+  
+    return totalPoints;
+  }
