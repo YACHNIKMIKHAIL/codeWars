@@ -1,0 +1,88 @@
+function multiTable(number) {
+ return `1 * ${number} = ${1*number}
+2 * ${number} = ${2*number}
+3 * ${number} = ${3*number}
+4 * ${number} = ${4*number}
+5 * ${number} = ${5*number}
+6 * ${number} = ${6*number}
+7 * ${number} = ${7*number}
+8 * ${number} = ${8*number}
+9 * ${number} = ${9*number}
+10 * ${number} = ${10*number}`
+function multiTable(number) {
+    return `1 * ${number} = ${1*number}
+   2 * ${number} = ${2*number}
+   3 * ${number} = ${3*number}
+   4 * ${number} = ${4*number}
+   5 * ${number} = ${5*number}
+   6 * ${number} = ${6*number}
+   7 * ${number} = ${7*number}
+   8 * ${number} = ${8*number}
+   9 * ${number} = ${9*number}
+   10 * ${number} = ${10*number}`
+   }
+
+   function toTime(seconds) {
+    const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+    
+      return `${hours} hour(s) and ${minutes} minute(s)`;
+    }
+
+    
+    function whoseMove(lastPlayer, isWin) {
+  
+        return isWin
+          ? lastPlayer 
+          : lastPlayer === "white"
+            ? "black" 
+            : "white"; 
+      }
+
+      function well(x){
+        let goodCounter = 0;
+        
+          for (const idea of x) {
+            if (idea === "good") {
+              goodCounter += 1;
+            }
+          }
+        
+          return goodCounter === 0
+            ? "Fail!"
+            : goodCounter > 2
+              ? "I smell a series!"
+              : "Publish!";
+        }
+
+        function correctPolishLetters (string) {
+            const mapping = {
+              ą: "a",
+              ć: "c",
+              ę: "e",
+              ł: "l",
+              ń: "n",
+              ó: "o",
+              ś: "s",
+              ź: "z",
+              ż: "z",
+            };
+          
+            
+            let withoutDiacritics = "";
+          
+            
+            for (const char of string) {
+              
+              if (Object.keys(mapping).includes(char)) {
+                withoutDiacritics += mapping[char];
+                
+              } else {
+                
+                withoutDiacritics += char;
+              }
+            }
+          
+            
+            return withoutDiacritics;
+          }
