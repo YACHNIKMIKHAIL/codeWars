@@ -1,0 +1,53 @@
+Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+
+For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
+
+Note: The function accepts an integer and returns an integer
+
+function squareDigits(num){
+    return +(''+num).split('').map(x => Math.pow(x,2)).join('')
+}
+
+
+
+A square of squares
+You like building blocks. You especially like building blocks that are squares. And what you even like more, is to arrange them into a square of square building blocks!
+
+However, sometimes, you can't arrange them into a square. Instead, you end up with an ordinary rectangle! Those blasted things! If you just had a way to know, whether you're currently working in vain… Wait! That's it! You just have to check if your number of building blocks is a perfect square.
+
+Task
+Given an integral number, determine if it's a square number:
+
+
+
+var isSquare = function(n){
+    return n < 0 ? false : Math.sqrt(n) == ~~(Math.sqrt(n))
+}
+
+
+
+For this exercise you should create a JavaScript class like object called "Animal" that takes in "name" and "type" arguments. It should have a toString method that returns a human readable string indicating the argument information passed in. It should also allow the name property to be set.
+
+The following is an example of how the final code would be used and what the expected return values should be:
+
+var dog = new Animal('Max', 'dog');
+dog.toString(); // should return 'Max is a dog'
+dog.type; // should == 'dog'
+dog.name; // should == 'Max'
+dog.name = 'Lassie'; // should set name to 'Lassie'
+
+var Animal = function(name, type) {
+    this.name = name;
+    this.type = type;
+}
+Animal.prototype.toString = function() {
+    return this.name + ' is a ' + this.type;
+};
+
+var cat= new Animal('Gas','cat');
+cat.toString(); 
+cat.type; 
+cat.name;
+cat.name='Piggy';
+
+
