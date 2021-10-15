@@ -1,0 +1,149 @@
+Your start-up's BA has told marketing that your website has a large audience in Scandinavia and surrounding countries. Marketing thinks it would be great to welcome visitors to the site in their own language. Luckily you already use an API that detects the user's location, so this is an easy win.
+
+The Task
+Think of a way to store the languages as a database (eg an object). The languages are listed below so you can copy and paste!
+Write a 'welcome' function that takes a parameter 'language' (always a string), and returns a greeting - if you have it in your database. It should default to English if the language is not in the database, or in the event of an invalid input.
+The Database
+english: 'Welcome',
+czech: 'Vitejte',
+danish: 'Velkomst',
+dutch: 'Welkom',
+estonian: 'Tere tulemast',
+finnish: 'Tervetuloa',
+flemish: 'Welgekomen',
+french: 'Bienvenue',
+german: 'Willkommen',
+irish: 'Failte',
+italian: 'Benvenuto',
+latvian: 'Gaidits',
+lithuanian: 'Laukiamas',
+polish: 'Witamy',
+spanish: 'Bienvenido',
+swedish: 'Valkommen',
+welsh: 'Croeso'
+
+
+function greet(language) {
+const country = {
+        english: 'Welcome',
+        czech: 'Vitejte',
+        danish: 'Velkomst',
+        dutch: 'Welkom',
+        estonian: 'Tere tulemast',
+        finnish: 'Tervetuloa',
+        flemish: 'Welgekomen',
+        french: 'Bienvenue',
+        german: 'Willkommen',
+        irish: 'Failte',
+        italian: 'Benvenuto',
+        latvian: 'Gaidits',
+        lithuanian: 'Laukiamas',
+        polish: 'Witamy',
+        spanish: 'Bienvenido',
+        swedish: 'Valkommen',
+        welsh: 'Croeso',
+        IP_ADDRESS_INVALID: 'Welcome',
+        IP_ADDRESS_NOT_FOUND: 'Welcome',
+        IP_ADDRESS_REQUIRED: 'Welcome'
+    }
+    return country[language]	
+}
+
+
+Define String.prototype.toAlternatingCase (or a similar function/method such as to_alternating_case/toAlternatingCase/ToAlternatingCase in your selected language; see the initial solution for details) such that each lowercase letter becomes uppercase and each uppercase letter becomes lowercase. For example:
+
+"hello world".toAlternatingCase() === "HELLO WORLD"
+"HELLO WORLD".toAlternatingCase() === "hello world"
+"hello WORLD".toAlternatingCase() === "HELLO world"
+"HeLLo WoRLD".toAlternatingCase() === "hEllO wOrld"
+"12345".toAlternatingCase() === "12345" // Non-alphabetical characters are unaffected
+"1a2b3c4d5e".toAlternatingCase() === "1A2B3C4D5E"
+"String.prototype.toAlternatingCase".toAlternatingCase() === "sTRING.PROTOTYPE.TOaLTERNATINGcASE"
+
+
+String.prototype.toAlternatingCase = function () {
+return this.split("").map(a => a === a.toUpperCase()? a.toLowerCase(): a.toUpperCase()).join('')
+}
+
+
+
+
+
+React is "A JavaScript library for building user interfaces". It's become a popular option amongst JavaScript frameworks and now it's supported in Codewars!
+
+For this first React Kata, we'll be exploring how to create elements with React. React has a high level method React.createElement for exactly this purpose. It's usage is as simple as:
+
+React.createElement('div', { prop: 'value' }, 'Hello world!'); 
+Where the first argument is the element tag, the second argument is the element's properties and the third tag is the content you want to add into the element.
+
+Your task is to create two wrapper methods called createElement and createUnorderedList for our own purposes.
+
+The createElement method should take in a content, tag, and properties, similar to the React method. We should be able to call this method with just content like createElement('Hello World') and by default it should create a div with the content "Hello World".
+
+The createUnorderedList method should take in list, which is an array strings and create a ul element, whose children are li elements containing the values from the list. Given an array ['apples', 'oranges', 'bananas'], the createUnorderedList method should return a react element with this heirarchy:
+
+<ul>
+  <li>apples</li>
+  <li>oranges</li>
+  <li>bananas</li>
+</ul>
+Also, React suggests that you always supply a key property when creating dynamic children so be sure to create a unique key for each child li created.
+
+For more general information about React check out the docs!
+
+
+
+
+var React = require("react");
+
+function createElement(content, tag = "div", props) {
+  return React.createElement(tag, props, content);
+}
+
+function createUnorderedList(list) {
+  return React.createElement(
+    "ul",
+    {},
+    list.map((str, i) => React.createElement("li", { key: i }, str))
+  );
+}
+
+
+
+You need to write a function ( addOrChangeUrlParameter(url, keyValueParameter) ) that can manipulate URL parameters.
+
+It should be able to
+
+add a parameter to an existing URL,
+but also to
+
+change a parameter if it already exists.
+Example:
+
+addOrChangeUrlParameter("www.example.com", "key=value") 
+// -> 'www.example.com?key=value' (adds a parameter).
+
+function addOrChangeUrlParameter (url, param) {
+    if (url.includes('?')) {
+        if (url.includes(param.split('=')[0])) {
+            return url.split('?')[0] + '?' + param
+        } else {
+            return url + '&' + param
+        }
+    } else {
+        if (param) {
+            return url + '?' + param
+        } else {
+            return url
+        }
+    }
+}
+
+An array is called zero-balanced if its elements sum to 0 and for each positive element n, 
+there exists another element that is the negative of n. Write a function named ìsZeroBalanced that returns true 
+if its argument is zero-balanced array, else return false. Note that an empty array will not sum to zero.
+
+function ìsZeroBalanced(n){
+    if (n.length === 0) return false
+    return n.every(x => n.includes(-x)) && n.reduce((x,y) => x + y, 0) === 0
+  }
