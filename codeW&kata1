@@ -1,0 +1,58 @@
+
+This Kata is intended as a small challenge for my students
+
+All Star Code Challenge #22
+
+Create a function that takes an integer argument of seconds and converts the value into a string describing how many hours and minutes comprise that many seconds.
+
+Any remaining seconds left over are ignored.
+
+Note:
+The string output needs to be in the specific form - "X hour(s) and X minute(s)"
+
+
+function toTime(seconds) {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor(seconds % 3600 / 60);
+  return `${hours} hour(s) and ${minutes} minute(s)`
+}
+
+
+
+You are given an array (which will have a length of at least 3, but could be very large) containing integers. 
+The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. 
+Write a method that takes the array as an argument and returns this "outlier" N.
+
+function findOutlier(integers){
+ const arr=integers.reduce((a,c)=>(a[Math.abs(c)%2+2]+=1,a[Math.abs(c)%2]=c,a),[0,0,0,0]);     
+  return arr[2] > arr[3] ? arr[1] : arr[0]; 
+}
+
+
+
+Create a class Ball. Ball objects should accept one argument for "ball type" when instantiated.
+
+If no arguments are given, ball objects should instantiate with a "ball type" of "regular."
+
+var Ball = function(ballType) {
+  
+    ballType === undefined ? this.ballType = 'regular' : this.ballType = 'super'
+};
+
+
+
+Complete the function that calculates the area of the red square, when the length of the circular arc A is given as the input. Return the result rounded to two decimals.
+
+Graph
+
+
+
+function squareArea(A){
+  var circum = 4 * A;
+    var radius = circum / (2 * Math.PI);
+    var area = Math.pow(radius, 2);
+    return Math.round(area*100)/100
+}
+
+
+
